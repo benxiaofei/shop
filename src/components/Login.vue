@@ -58,7 +58,7 @@ export default {
   methods: {
     // 重置表单
     resetLoginForm() {
-      console.log(this)
+      // console.log(this)
       this.$refs.loginFormRef.resetFields()
     },
     // 登录
@@ -66,10 +66,10 @@ export default {
       this.$refs.loginFormRef.validate(async valid => {
         if (!valid) return false
         const { data: res } = await this.$http.post('login', this.loginForm)
-        console.log(res);
+        // console.log(res);
         if (res.meta.status !== 200) return this.$message.error('登录失败')
         this.$message.success('登陆成功')
-        console.log(res)
+        // console.log(res)
         // 登陆成功 token 保存到sessionStorage
         window.sessionStorage.setItem('token', res.data.token)
         // 登陆成功跳转到home页面
